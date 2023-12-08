@@ -30,6 +30,7 @@
 - Update Store with Trailer Video Data
 - Embedded the YT Vide
 - Autoplay with mute, remove mute later
+- Build Secondary Component
 
 # Browse Page
 
@@ -39,6 +40,11 @@
 - Secondary Container
   - MovieList
   - cards
+
+# Secondary Container
+
+- MovieList - Popular, Trending, Now Playing, Horor, Genre etc
+  - Cards
 
 # Features
 
