@@ -22,6 +22,14 @@
 - Register on TMDB API
 - Create an app & get Access token
 - Get Data from TMDB now playing movies list REST API
+- Custom Hook for Now Playing Movies
+- Updated the Store with Movies Data
+- Create a movie Slice
+- Planning for Main Conatiner and Sec Container
+- Fetch Data for Trailer Video
+- Update Store with Trailer Video Data
+- Embedded the YT Vide
+- Autoplay with mute, remove mute later
 
 # Browse Page
 
@@ -29,8 +37,8 @@
   - Video Background
   - VideoTitle
 - Secondary Container
-  - MovieList \* n
-  - cards \* n
+  - MovieList
+  - cards
 
 # Features
 
