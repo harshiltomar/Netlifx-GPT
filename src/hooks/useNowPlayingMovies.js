@@ -4,7 +4,6 @@ import { addNowPlayingMovies } from "../utils/moviesSlice";
 import { useEffect } from "react";
 
 const useNowPlayingMovies = () => {
-  // Fetch Data from TMDB API and update store
   const dispatch = useDispatch();
 
   const getNowPlayingMovies = async () => {
@@ -17,10 +16,10 @@ const useNowPlayingMovies = () => {
     dispatch(addNowPlayingMovies(json.results));
   };
 
-  //The API call ocurs 2 times.. which happens bcz of react strict mode which is good for development stages
   useEffect(() => {
     getNowPlayingMovies();
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // Disable exhaustive-deps for this line
 };
 
 export default useNowPlayingMovies;

@@ -1,6 +1,5 @@
 export const API_OPTIONS = {
   method: "GET",
-  method: "GET",
   headers: {
     accept: "application/json",
     Authorization:
