@@ -31,6 +31,10 @@
 - Embedded the YT Vide
 - Autoplay with mute, remove mute later
 - Build Secondary Component
+- Build Movie List
+- Build Movie Card
+- Added Movies and TV Shows
+- GPT Search Feature
 
 # Browse Page
 

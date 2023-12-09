@@ -6,11 +6,15 @@ import { useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
+import { toggleGptSearchView } from "../utils/gptSlice";
+import { SUPPORTED_LANGUAGES } from "../utils/constants";
+import { changeLanguage } from "../utils/configSlice";
 
 const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((store) => store.user);
+  const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {})
@@ -40,6 +44,15 @@ const Header = () => {
     return () => unsubscribe();
   }, [dispatch, navigate]);
 
+  const handleGptSearchClick = () => {
+    // Toggle GPT Search
+    dispatch(toggleGptSearchView());
+  };
+
+  const handleLanguageChange = (e) => {
+    dispatch(changeLanguage(e.target.value));
+  };
+
   return (
     <div className="absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex justify-between">
       <img
@@ -49,6 +62,28 @@ const Header = () => {
       />
       {user && (
         <div className="flex p-2">
+          {showGptSearch && (
+            <select
+              className="text-white h-12 bg-red-800 mx-0 px-4 rounded-lg"
+              onChange={handleLanguageChange}
+            >
+              {SUPPORTED_LANGUAGES.map((lang) => (
+                <option
+                  className="bg-black rounded-lg"
+                  key={lang.identifier}
+                  value={lang.identifier}
+                >
+                  {lang.name}
+                </option>
+              ))}
+            </select>
+          )}
+          <button
+            onClick={handleGptSearchClick}
+            className="text-white h-12 bg-purple-800 mx-2 px-4 rounded-lg hover:bg-purple-600 transition duration-300 ease-in-out"
+          >
+            {showGptSearch ? "🏠 Homepage" : "🔍 GPT-Search"}
+          </button>
           <img
             className="w-12 h-12 rounded-lg"
             alt="usericon"
