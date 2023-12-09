@@ -37,6 +37,12 @@
 - GPT Search Feature
 - FEATURE : Multi-lingual Support
 - Integrate GPT API
+- Get Call
+- fetched gptMovie Suggestions from TMDB
+- created gptSlice and added data
+- Reused Movie List Component to reduce Calls
+- Memoization
+- Added .env file (not use bcz of github to netlify deploy)
 
 # Browse Page
 

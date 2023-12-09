@@ -9,7 +9,7 @@ const MovieCard = ({ title, posterPath }) => {
   if (!posterPath) return;
   return (
     <div
-      className="w-48 p-4 rounded-lg hover:scale-105"
+      className="w-36 md:w-48 p-4 rounded-lg hover:scale-105"
       style={{ overflow: "hidden" }}
     >
       <img
