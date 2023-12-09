@@ -35,6 +35,8 @@
 - Build Movie Card
 - Added Movies and TV Shows
 - GPT Search Feature
+- FEATURE : Multi-lingual Support
+- Integrate GPT API
 
 # Browse Page
 
