@@ -56,7 +56,7 @@ const Moviedetails = () => {
     fetchMoviesData();
     fetchMovieVideo();
     fetchTVData();
-  }, [fetchMoviesData, fetchMovieVideo, movieId]); // Include fetchMoviesData and movieId in the dependency array
+  }, [fetchMoviesData, fetchMovieVideo, fetchTVData, movieId]); // Include fetchMoviesData and movieId in the dependency array
 
   console.log("Movie", moviesdata);
   console.log("Tv", tvdata);
