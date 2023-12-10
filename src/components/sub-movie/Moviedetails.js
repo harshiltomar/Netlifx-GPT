@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from "react";
-import { Navigate, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { API_OPTIONS } from "../../utils/constants";
 
 const Moviedetails = () => {
@@ -23,32 +23,33 @@ const Moviedetails = () => {
     }
   }, [movieId]);
 
-  const fetchMovieVideo = async () => {
-    try {
-      const data = await fetch(
-        `https://api.themoviedb.org/3/movie/${movieId}/videos?language=en-US`,
-        API_OPTIONS
-      );
-      const json = await data.json();
-
-      const VideoData = json.results.filter(
-        (video) =>
-          video.type === "Trailer" ||
-          video.type === "Official Trailer" ||
-          video.type.toLowerCase().includes("trailer")
-      );
-
-      setVideo(json.results[0]);
-    } catch (error) {
-      console.error("Error fetching movie video:", error);
-    }
-  };
-
   useEffect(() => {
-    // Call the memoized fetchMoviesData function
+    // Define fetchMovieVideo inside the useEffect callback
+    const fetchMovieVideo = async () => {
+      try {
+        const data = await fetch(
+          `https://api.themoviedb.org/3/movie/${movieId}/videos?language=en-US`,
+          API_OPTIONS
+        );
+        const json = await data.json();
+
+        const VideoData = json.results.filter(
+          (video) =>
+            video.type === "Trailer" ||
+            video.type === "Official Trailer" ||
+            video.type.toLowerCase().includes("trailer")
+        );
+
+        setVideo(json.results[0]);
+      } catch (error) {
+        console.error("Error fetching movie video:", error);
+      }
+    };
+
+    // Call the memoized fetchMoviesData and fetchMovieVideo functions
     fetchMoviesData();
     fetchMovieVideo();
-  }, [fetchMoviesData, fetchMovieVideo]); // Include fetchMoviesData and fetchMovieVideo in the dependency array
+  }, [fetchMoviesData, movieId]);
 
   const handleBackToBrowse = () => {
     navigate("/Browse");

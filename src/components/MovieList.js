@@ -7,23 +7,15 @@ const MovieList = ({ title, movies }) => {
       <h1 className="text-lg md:text-3xl py-2 text-white">{title}</h1>
       <div className="flex overflow-x-scroll no-scrollbar">
         <div className="flex">
-          {movies?.map(
-            (movie) => (
-              console.log("movie :", movie.title),
-              console.log("TV :", movie.original_name),
-              (
-                <MovieCard
-                  id={movie.id}
-                  key={movie.id}
-                  title={
-                    movie.title != null ? movie.title : movie.original_name
-                  }
-                  posterPath={movie.poster_path}
-                  // name={movie.original_name}
-                />
-              )
-            )
-          )}
+          {movies?.map((movie) => (
+            <MovieCard
+              id={movie.id}
+              key={movie.id}
+              title={movie.title != null ? movie.title : movie.original_name}
+              posterPath={movie.poster_path}
+              // name={movie.original_name}
+            />
+          ))}
         </div>
       </div>
     </div>
