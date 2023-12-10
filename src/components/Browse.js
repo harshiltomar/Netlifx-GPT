@@ -10,6 +10,7 @@ import usePopularTV from "../hooks/TV Hooks/usePopularTV";
 import useTopRatedTV from "../hooks/TV Hooks/useTopRatedTV";
 import GptSearch from "./GptSearch";
 import { useSelector } from "react-redux";
+import { Footer } from "./Footer";
 
 const Browse = () => {
   const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
@@ -32,6 +33,7 @@ const Browse = () => {
           <SecondaryContainer />
         </>
       )}
+      <Footer />
     </div>
   );
 };

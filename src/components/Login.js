@@ -33,7 +33,7 @@ const Login = () => {
           const user = userCredential.user;
           updateProfile(user, {
             displayName: name.current.value,
-            photoURL: "https://avatars.githubusercontent.com/u/12824231?v=4",
+            photoURL: "https://cdn-icons-png.flaticon.com/512/2566/2566166.png",
           })
             .then(() => {})
             .catch((error) => {
@@ -68,17 +68,19 @@ const Login = () => {
   const toggleSignInForm = () => {
     setIsSignInForm(!isSignInForm);
   };
+
   return (
     <div>
       <Header />
       <div className="fixed">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
         <img src={BG_URL} alt="logo" />
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
-        className="w-full md:w-3/12 absolute p-12 bg-black my-36 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-80"
+        className="w-full md:w-4/12 absolute p-12 bg-black my-36 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-80"
       >
-        <h1 className="font-bold text-3xl py-4">
+        <h1 className="text-3xl py-4">
           {isSignInForm ? "Sign In" : "Sign Up"}
         </h1>
 
@@ -87,22 +89,26 @@ const Login = () => {
             ref={name}
             type="text"
             placeholder="Full Name"
-            className="p-4 my-4 w-full bg-gray-700"
+            className="p-4 my-4 w-full bg-gray-700 rounded-lg"
           />
         )}
         <input
           ref={email}
           type="text"
           placeholder="Email Address"
-          className="p-4 my-4 w-full bg-gray-700"
+          className="p-4 my-4 w-full bg-gray-700 rounded-lg"
         />
         <input
           ref={password}
           type="password"
           placeholder="Password"
-          className="p-4 my-4 w-full bg-gray-700"
+          className="p-4 my-4 w-full bg-gray-700 rounded-lg"
         />
         <p className="text-red-500 font-bold text-lg py-2">{errorMessage}</p>
+        <div className="flex justify-between text-gray-500">
+          <h4 className="text-sm">✅ Remember Me</h4>
+          <h4 className="text-sm">Need Help?</h4>
+        </div>
         <button
           className="p-4 my-6 bg-red-700 w-full rounded-lg"
           onClick={handleButtonClick}
@@ -111,8 +117,12 @@ const Login = () => {
         </button>
         <p className="py-4 cursor-pointer" onClick={toggleSignInForm}>
           {isSignInForm
-            ? "New to Netflix? Sign Up Now"
-            : "Already registered? Sign In Now."}
+            ? "New to Netflix? SIGN UP"
+            : "Already registered? SIGN IN"}
+        </p>
+        <p className="text-gray-500 font-thin">
+          Sign in is protected by Google reCAPTCHA to ensure you are not a bot.
+          <span class="text-blue-500 font-bold"> Learn More !</span>
         </p>
       </form>
     </div>
