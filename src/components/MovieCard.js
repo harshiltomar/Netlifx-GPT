@@ -2,7 +2,7 @@ import React from "react";
 import { IMG_CDN_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
 
-const MovieCard = ({ title, posterPath, id }) => {
+const MovieCard = ({ title, posterPath, id, original_name }) => {
   const imgStyle = {
     transition: "transform 0.2s",
   };
@@ -16,7 +16,7 @@ const MovieCard = ({ title, posterPath, id }) => {
       <Link to={"/browse/" + id}>
         <img
           className="rounded-lg"
-          alt={title}
+          alt={title != null ? title : original_name}
           src={IMG_CDN_URL + posterPath}
           style={{ ...imgStyle, opacity: 1 }}
         />
