@@ -70,9 +70,10 @@ const Moviedetails = () => {
       {tvdata?.first_air_date ? (
         <div className="-mt-10">
           <img
-            src={`https://image.tmdb.org/t/p/w500/${tvdata?.backdrop_path}`}
+            // src={`https://image.tmdb.org/t/p/w500/${tvdata?.backdrop_path}`}
+            src={`https://image.tmdb.org/t/p/original/${tvdata?.poster_path}`}
             alt={moviesdata?.title}
-            className="w-full h-full object-cover"
+            className="w-screen"
           />
         </div>
       ) : (
@@ -109,8 +110,8 @@ const Moviedetails = () => {
           </p>
           <div className="flex mx-0">
             {(tvdata?.first_air_date
-              ? moviesdata?.genres
-              : tvdata?.genres
+              ? tvdata?.genres
+              : moviesdata?.genres
             )?.map((genre) => (
               <p
                 key={genre?.id}

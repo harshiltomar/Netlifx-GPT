@@ -9,6 +9,8 @@ import { addUser, removeUser } from "../utils/userSlice";
 import { toggleGptSearchView } from "../utils/gptSlice";
 import { SUPPORTED_LANGUAGES } from "../utils/constants";
 import { changeLanguage } from "../utils/configSlice";
+import { faBell, faSearch, faHome } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -78,11 +80,17 @@ const Header = () => {
               ))}
             </select>
           )}
+          <FontAwesomeIcon icon={faBell} className="text-gray-400 h-10 m-1" />
           <button
             onClick={handleGptSearchClick}
             className="text-white h-12 bg-purple-800 mx-2 px-4 rounded-lg hover:bg-purple-600 transition duration-300 ease-in-out"
           >
-            {showGptSearch ? "🏠 Homepage" : "🔍 GPT-Search"}
+            {showGptSearch ? (
+              <FontAwesomeIcon icon={faHome} className="mr-2" />
+            ) : (
+              <FontAwesomeIcon icon={faSearch} className="mr-2" />
+            )}
+            {showGptSearch ? "Homepage" : "GPT-Search"}
           </button>
           <img
             className="w-12 h-12 rounded-lg"

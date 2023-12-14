@@ -1,12 +1,7 @@
 import React from "react";
-import { IMG_CDN_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
 
-const MovieCard = ({ title, posterPath, id, original_name }) => {
-  const imgStyle = {
-    transition: "transform 0.2s",
-  };
-
+const MovieCard = ({ title, posterPath, id, original_name, backdropPath }) => {
   if (!posterPath) return null;
 
   // Generate a random number
@@ -19,13 +14,13 @@ const MovieCard = ({ title, posterPath, id, original_name }) => {
   const randomWidth = Math.floor(Math.random() * 100); // Adjust the maximum width as needed
 
   return (
-    <div className="w-36 md:w-48 p-4 rounded-lg hover:scale-105 relative">
+    <div className="w-screen md:w-80 p-1 rounded-lg hover:scale-105 relative">
       <Link to={"/browse/" + id}>
         <img
-          className="rounded-lg"
+          className="rounded-lg object-cover"
           alt={title != null ? title : original_name}
-          src={IMG_CDN_URL + posterPath}
-          style={{ ...imgStyle, opacity: 1 }}
+          src={`https://image.tmdb.org/t/p/original/${backdropPath}`}
+          // src={IMG_CDN_URL + backdropPath}
         />
       </Link>
       <div className="relative mt-2">

@@ -31,10 +31,18 @@ const moviesSlice = createSlice({
     addTopRatedTV: (state, action) => {
       state.topRatedTV = action.payload;
     },
+    addSimilarMovies: (state, action) => {
+      state.similarMovies = action.payload;
+    },
+    addSimilarTV: (state, action) => {
+      state.similarTV = action.payload;
+    },
   },
 });
 
 export const {
+  addSimilarTV,
+  addSimilarMovies,
   addNowPlayingMovies,
   addTopRatedMovies,
   addUpcomingMovies,
