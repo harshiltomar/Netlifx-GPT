@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { API_OPTIONS } from "../utils/constants";
-import { addSimilarTV } from "../utils/moviesSlice";
+import { API_OPTIONS } from "../../utils/constants";
+import { addSimilarTV } from "../../utils/moviesSlice";
 
-const useSimilarTV = () => {
+const useSimilarTV = (movieId) => {
   // Fetch Data from TMDB API and update store
   const dispatch = useDispatch();
 
@@ -11,7 +11,7 @@ const useSimilarTV = () => {
 
   const getSimilarTV = async () => {
     const data = await fetch(
-      "https://api.themoviedb.org/3/movie/movie_id/similar?language=en-US&page=1",
+      `https://api.themoviedb.org/3/tv/${movieId}/similar?language=en-US&page=1`,
       API_OPTIONS
     );
     const json = await data.json();

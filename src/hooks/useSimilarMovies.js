@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { API_OPTIONS } from "../utils/constants";
 import { addSimilarMovies } from "../utils/moviesSlice";
 
-const useSimilarMovies = () => {
+const useSimilarMovies = (movieId) => {
   // Fetch Data from TMDB API and update store
   const dispatch = useDispatch();
 
@@ -11,7 +11,7 @@ const useSimilarMovies = () => {
 
   const getSimilarMovies = async () => {
     const data = await fetch(
-      "https://api.themoviedb.org/3/movie/movie_id/similar?language=en-US&page=1",
+      `https://api.themoviedb.org/3/movie/${movieId}/similar?language=en-US&page=1`,
       API_OPTIONS
     );
     const json = await data.json();

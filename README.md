@@ -44,12 +44,15 @@
 - Memoization
 - Added .env file (not use bcz of github to netlify deploy)
 
-# Self
+# Personal Features
 
 - Made posters path for Horizontal Poster for TMDB REST APi
 - Changed icons using font-awesome icons library
 - added Tv categories and Movie 2 more categories
 - used poster pasth for TV category instead of backdrop path
+- Added Recommended/ Similar List on Sub-Movie Page
+- Added 2 movielist to it to make it look more Dynamic
+- Working on Linking Ability to open there sub-pages also
 
 # Browse Page
 

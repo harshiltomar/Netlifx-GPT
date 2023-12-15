@@ -15,7 +15,7 @@ const MovieCard = ({ title, posterPath, id, original_name, backdropPath }) => {
 
   return (
     <div className="w-screen md:w-80 p-1 rounded-lg hover:scale-105 relative">
-      <Link to={"/browse/" + id}>
+      <Link to={`/browse/${id}?title=${encodeURIComponent(title)}`}>
         <img
           className="rounded-lg object-cover"
           alt={title != null ? title : original_name}
