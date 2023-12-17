@@ -68,30 +68,34 @@ const Header = () => {
           src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
           alt="logo"
         />
-        <h1
-          className={`text-white m-4 ml-10 cursor-pointer ${
-            activeSection === "home" ? "font-bold" : "font-thin"
-          }`}
-          onClick={() => handleSectionClick("home")}
-        >
-          Home
-        </h1>
-        <h1
-          className={`text-white m-4 cursor-pointer ${
-            activeSection === "movies" ? "font-bold" : "font-thin"
-          }`}
-          onClick={() => handleSectionClick("movies")}
-        >
-          Movies
-        </h1>
-        <h1
-          className={`text-white m-4 cursor-pointer ${
-            activeSection === "tvShows" ? "font-bold" : "font-thin"
-          }`}
-          onClick={() => handleSectionClick("tvShows")}
-        >
-          TV Shows
-        </h1>
+        {user && (
+          <div>
+            <h1
+              className={`text-white m-4 ml-10 cursor-pointer ${
+                activeSection === "home" ? "font-bold" : "font-thin"
+              }`}
+              onClick={() => handleSectionClick("home")}
+            >
+              Home
+            </h1>
+            <h1
+              className={`text-white m-4 cursor-pointer ${
+                activeSection === "movies" ? "font-bold" : "font-thin"
+              }`}
+              onClick={() => handleSectionClick("movies")}
+            >
+              Movies
+            </h1>
+            <h1
+              className={`text-white m-4 cursor-pointer ${
+                activeSection === "tvShows" ? "font-bold" : "font-thin"
+              }`}
+              onClick={() => handleSectionClick("tvShows")}
+            >
+              TV Shows
+            </h1>
+          </div>
+        )}
       </div>
       {user && (
         <div className="flex p-2 justify-between">
