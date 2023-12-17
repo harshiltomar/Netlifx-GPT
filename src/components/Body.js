@@ -15,7 +15,7 @@ const Body = () => {
       element: <Browse />,
     },
     {
-      path: "browse/:movieId",
+      path: "/browse/:movieId",
       element: <Moviedetails />,
     },
   ]);

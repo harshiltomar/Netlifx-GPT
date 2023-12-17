@@ -1,6 +1,7 @@
 import React from "react";
 import MovieList from "../MovieList";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const RecommendationContainer = ({
   tvdata,
@@ -11,7 +12,7 @@ const RecommendationContainer = ({
   const movies = useSelector((store) => store.movies);
 
   return (
-    <div className="bg-zinc-800 w-screen">
+    <div className="bg-zinc-800 w-screen mt-20">
       <div className="mt-0 md:-mt-40 pl-4 md:pl-12 relative z-20">
         <h1 className="text-white text-4xl mt-10 mb-2">
           Similar Recommendations
@@ -28,13 +29,19 @@ const RecommendationContainer = ({
                     >
                       {item.backdrop_path && (
                         <>
-                          <img
-                            className="rounded-lg object-cover"
-                            alt={item.name}
-                            src={`https://image.tmdb.org/t/p/original/${item.backdrop_path}`}
-                          />
+                          <Link
+                            to={`/browse/${item.id}?title=${encodeURIComponent(
+                              item.original_name
+                            )}`}
+                          >
+                            <img
+                              className="rounded-lg object-cover"
+                              alt={item.name}
+                              src={`https://image.tmdb.org/t/p/original/${item.backdrop_path}`}
+                            />
+                          </Link>
                           <h1 className="text-white mt-2 text-lg">
-                            {item.title}
+                            {item.name}
                           </h1>
                         </>
                       )}
@@ -53,11 +60,17 @@ const RecommendationContainer = ({
                     >
                       {item.backdrop_path && (
                         <>
-                          <img
-                            className="rounded-lg object-cover"
-                            alt={item.name}
-                            src={`https://image.tmdb.org/t/p/original/${item.backdrop_path}`}
-                          />
+                          <Link
+                            to={`/browse/${item.id}?title=${encodeURIComponent(
+                              item.original_name
+                            )}`}
+                          >
+                            <img
+                              className="rounded-lg object-cover"
+                              alt={item.name}
+                              src={`https://image.tmdb.org/t/p/original/${item.backdrop_path}`}
+                            />
+                          </Link>
                           <h1 className="text-white mt-2 text-lg">
                             {item.title}
                           </h1>

@@ -20,7 +20,6 @@ const MovieCard = ({ title, posterPath, id, original_name, backdropPath }) => {
           className="rounded-lg object-cover"
           alt={title != null ? title : original_name}
           src={`https://image.tmdb.org/t/p/original/${backdropPath}`}
-          // src={IMG_CDN_URL + backdropPath}
         />
       </Link>
       <div className="relative mt-2">

@@ -12,7 +12,10 @@ const DetailBackground = ({ tvdata, title, video }) => {
           />
         </div>
       ) : (
-        <div className="w-screen -mt-24 aspect-video ">
+        <div
+          className="w-screen -mt-24 aspect-video"
+          style={{ height: "150%" }}
+        >
           <iframe
             className=""
             width="100%"
