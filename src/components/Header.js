@@ -69,7 +69,7 @@ const Header = () => {
           alt="logo"
         />
         {user && (
-          <div>
+          <div className="flex row">
             <h1
               className={`text-white m-4 ml-10 cursor-pointer ${
                 activeSection === "home" ? "font-bold" : "font-thin"
