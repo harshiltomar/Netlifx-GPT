@@ -13,6 +13,7 @@ const MainDetailContainer = ({
 }) => {
   console.log("SimilarMovie: ", similarMovie);
   console.log("SimilarTV: ", similarTv);
+  console.log("video", video);
 
   return (
     <div className="mt-[30px]">
